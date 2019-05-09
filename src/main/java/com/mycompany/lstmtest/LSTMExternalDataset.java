@@ -257,7 +257,7 @@ public class LSTMExternalDataset {
     }
 
     private static void computeExternalDataset(List<double[]> oneActivity, boolean forTraining) {
-        String features = "";
+        StringBuilder features = new StringBuilder();
         for (double[] entry : oneActivity) {
             features.append(entry[0]).append(csvSplitBy).append(entry[1]).append(csvSplitBy).append(entry[2]).append("\n");
         }
@@ -275,7 +275,7 @@ public class LSTMExternalDataset {
         }
 
         try {
-            FileUtils.writeStringToFile(outPathFeatures, features);
+            FileUtils.writeStringToFile(outPathFeatures, features.toString());
             FileUtils.writeStringToFile(outPathLabels, String.valueOf((int)oneActivity.get(0)[3]));
         } catch (IOException ex) {
             ex.printStackTrace();
