@@ -259,7 +259,7 @@ public class LSTMExternalDataset {
     private static void computeExternalDataset(List<double[]> oneActivity, boolean forTraining) {
         String features = "";
         for (double[] entry : oneActivity) {
-            features = features + entry[0] + csvSplitBy + entry[1] + csvSplitBy + entry[2] + "\n";
+            features.append(entry[0]).append(csvSplitBy).append(entry[1]).append(csvSplitBy).append(entry[2]).append("\n");
         }
 
         //Write output in a format we can read, in the appropriate locations
